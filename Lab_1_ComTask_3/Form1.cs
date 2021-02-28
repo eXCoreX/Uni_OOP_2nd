@@ -19,8 +19,7 @@ namespace Lab_1_ComTask_3
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            Color color;
-            color = Color.Green;
+            Color color = Color.Green;
 
             if (panel.BackColor != color)
             {
