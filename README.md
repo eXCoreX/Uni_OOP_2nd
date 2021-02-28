@@ -1,4 +1,3 @@
-Uni_OOP_2nd
 # OOP Second semester
 
 ## Lab 1:
