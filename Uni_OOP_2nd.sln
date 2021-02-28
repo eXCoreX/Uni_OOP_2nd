@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MdiApplication", "MdiApplic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_1_ComTask_1", "Lab_1_ComTask_1\Lab_1_ComTask_1.csproj", "{212D2CAA-01B0-43D5-8ECC-C0647210F4A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_1_ComTask_2", "Lab_1_ComTask_2\Lab_1_ComTask_2.csproj", "{140D864F-3AB3-47E1-AD2A-DA8D2482ABF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{212D2CAA-01B0-43D5-8ECC-C0647210F4A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{212D2CAA-01B0-43D5-8ECC-C0647210F4A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{212D2CAA-01B0-43D5-8ECC-C0647210F4A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{140D864F-3AB3-47E1-AD2A-DA8D2482ABF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{140D864F-3AB3-47E1-AD2A-DA8D2482ABF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{140D864F-3AB3-47E1-AD2A-DA8D2482ABF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{140D864F-3AB3-47E1-AD2A-DA8D2482ABF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
