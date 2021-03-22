@@ -49,7 +49,7 @@ namespace MdiApplication
             this.MdiMenu.Location = new System.Drawing.Point(0, 0);
             this.MdiMenu.MdiWindowListItem = this.WindowMenuItem;
             this.MdiMenu.Name = "MdiMenu";
-            this.MdiMenu.Size = new System.Drawing.Size(394, 42);
+            this.MdiMenu.Size = new System.Drawing.Size(773, 40);
             this.MdiMenu.TabIndex = 1;
             this.MdiMenu.Text = "menuStrip1";
             // 
@@ -59,20 +59,20 @@ namespace MdiApplication
             this.NewMenuItem,
             this.ExitMenuItem});
             this.FileMenuItem.Name = "FileMenuItem";
-            this.FileMenuItem.Size = new System.Drawing.Size(72, 38);
+            this.FileMenuItem.Size = new System.Drawing.Size(72, 36);
             this.FileMenuItem.Text = "&File";
             // 
             // NewMenuItem
             // 
             this.NewMenuItem.Name = "NewMenuItem";
-            this.NewMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.NewMenuItem.Size = new System.Drawing.Size(197, 44);
             this.NewMenuItem.Text = "&New";
             this.NewMenuItem.Click += new System.EventHandler(this.NewMenuItem_Click);
             // 
             // ExitMenuItem
             // 
             this.ExitMenuItem.Name = "ExitMenuItem";
-            this.ExitMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.ExitMenuItem.Size = new System.Drawing.Size(197, 44);
             this.ExitMenuItem.Text = "&Exit";
             this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
             // 
@@ -82,7 +82,7 @@ namespace MdiApplication
             this.WindowCascadeMenuItem,
             this.WindowTileMenuItem});
             this.WindowMenuItem.Name = "WindowMenuItem";
-            this.WindowMenuItem.Size = new System.Drawing.Size(122, 38);
+            this.WindowMenuItem.Size = new System.Drawing.Size(122, 36);
             this.WindowMenuItem.Text = "&Window";
             // 
             // WindowCascadeMenuItem
@@ -103,7 +103,7 @@ namespace MdiApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 249);
+            this.ClientSize = new System.Drawing.Size(773, 448);
             this.Controls.Add(this.MdiMenu);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.MdiMenu;

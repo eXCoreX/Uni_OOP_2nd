@@ -19,7 +19,7 @@ namespace Lab_1_ComTask_1
 
         private void buttonClose2And3_Click(object sender, EventArgs e)
         {
-            (Owner as Form).Close();
+            Owner.Close();
         }
     }
 }

@@ -19,7 +19,6 @@ namespace Lab_1_ComTask_4
         {
             InitializeComponent();
             labelFont = new Font("Arial Semibold", 10, FontStyle.Italic);
-
         }
 
         private void buttonAddLabel_Click(object sender, EventArgs e)

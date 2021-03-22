@@ -72,6 +72,7 @@ namespace Lab_1_ComTask_3
             this.Controls.Add(this.panel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.colorListBox);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

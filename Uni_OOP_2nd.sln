@@ -3,23 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab 1\Lab_1_1", "Lab 1\Lab_1_1\Lab_1_1.csproj", "{6E1F73AC-6671-4BE9-89F3-D260CB2EBB16}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_1_1", "Lab 1\Lab_1_1\Lab_1_1.csproj", "{6E1F73AC-6671-4BE9-89F3-D260CB2EBB16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab 1\Lab_1_2", "Lab 1\Lab_1_2\Lab_1_2.csproj", "{D4523960-6D9F-4793-8919-750C48C999EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_1_2", "Lab 1\Lab_1_2\Lab_1_2.csproj", "{D4523960-6D9F-4793-8919-750C48C999EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab 1\MdiApplication", "Lab 1\MdiApplication\MdiApplication.csproj", "{670B76A0-4481-4E20-892F-B2008846C0A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MdiApplication", "Lab 1\MdiApplication\MdiApplication.csproj", "{670B76A0-4481-4E20-892F-B2008846C0A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab 1\Lab_1_ComTask_1", "Lab 1\Lab_1_ComTask_1\Lab_1_ComTask_1.csproj", "{212D2CAA-01B0-43D5-8ECC-C0647210F4A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_1_ComTask_1", "Lab 1\Lab_1_ComTask_1\Lab_1_ComTask_1.csproj", "{212D2CAA-01B0-43D5-8ECC-C0647210F4A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab 1\Lab_1_ComTask_2", "Lab 1\Lab_1_ComTask_2\Lab_1_ComTask_2.csproj", "{140D864F-3AB3-47E1-AD2A-DA8D2482ABF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_1_ComTask_2", "Lab 1\Lab_1_ComTask_2\Lab_1_ComTask_2.csproj", "{140D864F-3AB3-47E1-AD2A-DA8D2482ABF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab 1\Lab_1_ComTask_3", "Lab 1\Lab_1_ComTask_3\Lab_1_ComTask_3.csproj", "{266A44F7-302B-4C51-88B5-AB7B40556F2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_1_ComTask_3", "Lab 1\Lab_1_ComTask_3\Lab_1_ComTask_3.csproj", "{266A44F7-302B-4C51-88B5-AB7B40556F2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab 1\Lab_1_ComTask_4", "Lab 1\Lab_1_ComTask_4\Lab_1_ComTask_4.csproj", "{F03242F2-A1F3-4617-8773-273F42EB36EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_1_ComTask_4", "Lab 1\Lab_1_ComTask_4\Lab_1_ComTask_4.csproj", "{F03242F2-A1F3-4617-8773-273F42EB36EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab 1\Lab_1_IndividualTask", "Lab 1\Lab_1_IndividualTask\Lab_1_IndividualTask.csproj", "{21595E27-184C-4884-876D-4F291FD7DC2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_1_IndividualTask", "Lab 1\Lab_1_IndividualTask\Lab_1_IndividualTask.csproj", "{21595E27-184C-4884-876D-4F291FD7DC2D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab 1", "Lab 1", "{1CD91C89-0C9D-43FA-9297-BAEC27DE93F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab 2", "Lab 2", "{0334B83A-1C0D-4F23-9BBF-4E3E2EDAF087}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_2_Task_1", "Lab 2\Lab_2_Task_1\Lab_2_Task_1.csproj", "{F5A2A967-6AB6-4667-AAD6-D39111DE5C37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +63,10 @@ Global
 		{21595E27-184C-4884-876D-4F291FD7DC2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21595E27-184C-4884-876D-4F291FD7DC2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21595E27-184C-4884-876D-4F291FD7DC2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5A2A967-6AB6-4667-AAD6-D39111DE5C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5A2A967-6AB6-4667-AAD6-D39111DE5C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5A2A967-6AB6-4667-AAD6-D39111DE5C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5A2A967-6AB6-4667-AAD6-D39111DE5C37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +80,7 @@ Global
 		{266A44F7-302B-4C51-88B5-AB7B40556F2B} = {1CD91C89-0C9D-43FA-9297-BAEC27DE93F5}
 		{F03242F2-A1F3-4617-8773-273F42EB36EE} = {1CD91C89-0C9D-43FA-9297-BAEC27DE93F5}
 		{21595E27-184C-4884-876D-4F291FD7DC2D} = {1CD91C89-0C9D-43FA-9297-BAEC27DE93F5}
+		{F5A2A967-6AB6-4667-AAD6-D39111DE5C37} = {0334B83A-1C0D-4F23-9BBF-4E3E2EDAF087}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EEC4400C-3D82-41AF-916D-5CECDB196A14}
