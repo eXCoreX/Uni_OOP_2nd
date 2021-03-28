@@ -12,7 +12,6 @@ namespace Lab_2_IndividualTask_2
 {
     public partial class Form1 : Form
     {
-        private EventHandler superMegaAction;
         private bool isTrasparent = false;
         private bool isBackgroundGray = false;
 
@@ -57,18 +56,17 @@ namespace Lab_2_IndividualTask_2
         {
             MessageBox.Show("Я супермегакнопка,\n" +
                             "і цього мене не позбавиш!");
-            superMegaAction?.Invoke(sender, e);
         }
 
         private void checkBoxTrasparency_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxTrasparency.Checked)
             {
-                superMegaAction += buttonTransparency_Click;
+                buttonSuperMega.Click += buttonTransparency_Click;
             }
             else
             {
-                superMegaAction -= buttonTransparency_Click;
+                buttonSuperMega.Click -= buttonTransparency_Click;
             }
         }
 
@@ -76,11 +74,11 @@ namespace Lab_2_IndividualTask_2
         {
             if (checkBoxBackground.Checked)
             {
-                superMegaAction += buttonBackground_Click;
+                buttonSuperMega.Click += buttonBackground_Click;
             }
             else
             {
-                superMegaAction -= buttonBackground_Click;
+                buttonSuperMega.Click -= buttonBackground_Click;
             }
         }
 
@@ -88,11 +86,11 @@ namespace Lab_2_IndividualTask_2
         {
             if (checkBoxHello.Checked)
             {
-                superMegaAction += buttonHello_Click;
+                buttonSuperMega.Click += buttonHello_Click;
             }
             else
             {
-                superMegaAction -= buttonHello_Click;
+                buttonSuperMega.Click -= buttonHello_Click;
             }
         }
     }
