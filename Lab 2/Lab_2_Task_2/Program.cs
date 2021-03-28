@@ -32,8 +32,9 @@ namespace Lab_2_Task_2
                             break;
                         case 3:
                             myTimer.Cancel();
-                            goto outer;
+                            break;
                         default:
+                            goto outer;
                             break;
                     }
                 }

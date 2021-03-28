@@ -36,6 +36,10 @@ namespace Lab_2_Task_2
 
         public void Start()
         {
+            if (cancellationTokenSource.IsCancellationRequested)
+            {
+                throw new Exception("Thread is already cancelled.");
+            }
             if (!isActive)
             {
                 isActive = true;
@@ -45,6 +49,10 @@ namespace Lab_2_Task_2
 
         public void Stop()
         {
+            if (cancellationTokenSource.IsCancellationRequested)
+            {
+                throw new Exception("Thread is already cancelled.");
+            }
             if (isActive)
             {
                 isActive = false;
