@@ -14,7 +14,7 @@ namespace Lab_2_Task_2
                {
                    Console.WriteLine("Tick");
                });
-            Console.WriteLine("Enter 1 to start, 2 to pause, 3 to cancel timer.");
+            Console.WriteLine("Enter 1 to start, 2 to pause, 3 to cancel timer. Anything else will exit the program.");
 
             while (true)
             {
@@ -35,12 +35,11 @@ namespace Lab_2_Task_2
                             break;
                         default:
                             goto outer;
-                            break;
                     }
                 }
             }
         outer:;
-            Console.WriteLine("Press enter to exit" );
+            Console.WriteLine("Press enter to exit");
             Console.ReadKey();
         }
     }
