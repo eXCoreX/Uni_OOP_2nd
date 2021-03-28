@@ -22,7 +22,7 @@ namespace Lab_2_Task_2
             {
                 return _Interval;
             }
-            set
+            private set
             {
                 if (value.TotalMilliseconds < 50)
                 {
