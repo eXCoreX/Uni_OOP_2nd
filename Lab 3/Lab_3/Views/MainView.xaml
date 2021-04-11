@@ -1,0 +1,138 @@
+﻿<Window x:Class="Lab_3.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab_3.Views" 
+        xmlns:viewmodel="clr-namespace:Lab_3.ViewModels" 
+        d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
+        mc:Ignorable="d"
+        Title="MainView" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="DeleteButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="DarkRed"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="Red"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="DarkRed"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Window.DataContext>
+        <viewmodel:MainViewModel/>
+    </Window.DataContext>
+    
+    
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="MagazinesListView" Margin="2" Grid.Row="0" Grid.Column="0" ItemsSource="{Binding Magazines}" SelectedIndex="{Binding SelectedIndex}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid MouseLeftButtonDown="OnMagazineDoubleClick" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding ShortDescription}" FontSize="24" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <Grid Grid.Row="1" Height="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.25*" />
+                <ColumnDefinition Width="0.25*" />
+                <ColumnDefinition Width="0.25*" />
+                <ColumnDefinition Width="0.25*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Margin="2" PreviewMouseDown="OnAddNewClick">
+                <TextBlock Text="Add new" FontSize="24" />
+            </Button>
+            <Button Grid.Column="1" Margin="2" PreviewMouseDown="OnViewDetailsClick">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=MagazinesListView, Path=SelectedIndex}" Value="-1">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <TextBlock Text="View details" FontSize="24" />
+            </Button>
+            <Button Grid.Column="2" Margin="2" PreviewMouseDown="OnEditClick">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=MagazinesListView, Path=SelectedIndex}" Value="-1">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <TextBlock Text="Edit" FontSize="24" />
+            </Button>
+            <Button Grid.Column="3" Margin="2" Style="{DynamicResource DeleteButtonStyle}" Command="{Binding RemoveSelectedCommand}">
+                <TextBlock Text="Delete" FontSize="24" />
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

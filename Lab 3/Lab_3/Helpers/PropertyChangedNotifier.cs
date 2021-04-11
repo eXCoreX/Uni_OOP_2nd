@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab_3.ViewModel
+namespace Lab_3.Helpers
 {
-    class BaseViewModel : INotifyPropertyChanged
+    public class PropertyChangedNotifier : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

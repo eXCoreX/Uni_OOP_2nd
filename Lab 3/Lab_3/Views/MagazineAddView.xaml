@@ -1,0 +1,45 @@
+﻿<Window x:Class="Lab_3.Views.MagazineAddView"
+        x:Name="ThisWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab_3.Views"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" 
+        xmlns:viewmodels="clr-namespace:Lab_3.ViewModels"
+        xmlns:models="clr-namespace:Lab_3.Models"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MagazineAddViewModel}"
+        mc:Ignorable="d"
+        Title="{Binding Magazine.Name}" Height="450" Width="800">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="periodicityData" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="models:Periodicity" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBox Margin="2" Grid.Row="0" Text="{Binding Magazine.Name}" FontSize="24" />
+        <ListView Margin="2" Grid.Row="1" ItemsSource="{Binding Magazine.Articles}" FontSize="24">
+        </ListView>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Margin="2" Grid.Column="0" Text="{Binding TotalPages, StringFormat=Pages total: {0}\,}" FontSize="24" />
+            <TextBlock Margin="2" Grid.Column="1" Text="Published: " FontSize="24" />
+            <ComboBox Margin="2" Grid.Column="2" SelectedItem="{Binding Magazine.Periodicity, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource periodicityData}}" FontSize="24" />
+            <Button Margin="2" Grid.Column="3" Content="Add new article" FontSize="24" Width="200" PreviewMouseLeftButtonDown="OnAddNewArticleClick" />
+            <Button Margin="2" Grid.Column="4" Content="Confirm" FontSize="24" Width="120" Command="{Binding ConfirmCommand}" CommandParameter="{Binding ElementName=ThisWindow}" />
+        </Grid>
+    </Grid>
+</Window>

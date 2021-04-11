@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Lab_3.Model
+namespace Lab_3.Models
 {
-    class Author
+    public class Author : ICloneable
     {
         public Author(string firstName, string lastName, DateTime dateOfBirth)
         {
@@ -53,7 +49,7 @@ namespace Lab_3.Model
             }
             set
             {
-                if (new DateTime(1880, 1, 1) < value && value < DateTime.Now)
+                if (value < DateTime.Now)
                 {
                     dateOfBirth = value;
                 }
@@ -67,6 +63,11 @@ namespace Lab_3.Model
         public override string ToString()
         {
             return $"{FirstName} {LastName}, {DateOfBirth:D}";
+        }
+
+        public object Clone()
+        {
+            return new Author(FirstName, LastName, DateOfBirth);
         }
     }
 }

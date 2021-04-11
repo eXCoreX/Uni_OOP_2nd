@@ -59,14 +59,32 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\Author.cs" />
-    <Compile Include="Model\Article.cs" />
-    <Compile Include="Model\Magazine.cs" />
-    <Compile Include="Model\Periodicity.cs" />
-    <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="View\MainView.xaml.cs">
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Helpers\PropertyChangedNotifier.cs" />
+    <Compile Include="Models\Author.cs" />
+    <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\Magazine.cs" />
+    <Compile Include="Models\Periodicity.cs" />
+    <Compile Include="ViewModels\ArticleAddViewModel.cs" />
+    <Compile Include="ViewModels\MagazineAddViewModel.cs" />
+    <Compile Include="ViewModels\MagazineDetailViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\MagazineEditViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\ArticleAddView.xaml.cs">
+      <DependentUpon>ArticleAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MagazineDetailView.xaml.cs">
+      <DependentUpon>MagazineDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MagazineEditView.xaml.cs">
+      <DependentUpon>MagazineEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MagazineAddView.xaml.cs">
+      <DependentUpon>MagazineAddView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -96,7 +114,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="View\MainView.xaml">
+    <Page Include="Views\ArticleAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MagazineDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MagazineEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MagazineAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

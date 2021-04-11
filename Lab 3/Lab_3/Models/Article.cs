@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Lab_3.Model
+namespace Lab_3.Models
 {
-    class Article
+    public class Article : ICloneable
     {
         public Article(Author author, string name, int pageCount, int fee)
         {
             Author = author;
-            Name = name;
+            Title = name;
             PageCount = pageCount;
             Fee = fee;
         }
@@ -32,7 +28,7 @@ namespace Lab_3.Model
 
         private string name;
 
-        public string Name
+        public string Title
         {
             get
             {
@@ -53,7 +49,11 @@ namespace Lab_3.Model
                 return pageCount; 
             }
             set 
-            { 
+            {
+                if (pageCount < 0)
+                {
+                    throw new ArgumentException("Page count can't be less than 1");
+                }
                 pageCount = value; 
             }
         }
@@ -74,7 +74,13 @@ namespace Lab_3.Model
 
         public override string ToString()
         {
-            return $"{Name} by {Author.FirstName} {Author.LastName}, {PageCount} p.";
+            return $"{Title} by {Author.FirstName} {Author.LastName}, {PageCount} p.";
+        }
+
+        public object Clone()
+        {
+            var authorClone = Author.Clone() as Author;
+            return new Article(authorClone, Title, PageCount, Fee);
         }
     }
 }
