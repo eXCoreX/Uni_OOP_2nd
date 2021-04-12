@@ -21,10 +21,12 @@ namespace Lab_3.ViewModels
 
         public ArticleAddViewModel(MagazineAddViewModel magAddVM)
         {
+            _rootVM = magAddVM;
             _Magazine = magAddVM?.Magazine ?? throw new ArgumentNullException("Magazine can't be null");
             Article = new Article(new Author("", "", new DateTime(2000, 1, 1)), "", 1, 0);
         }
 
+        private readonly MagazineAddViewModel _rootVM = null;
         private readonly Magazine _Magazine = null;
 
         private Article _Article = null;
@@ -56,6 +58,7 @@ namespace Lab_3.ViewModels
         private void ArticleCorfirm(object commandParameter)
         {
             _Magazine.AddArticle(Article);
+            _rootVM.OnPropertyChanged(nameof(_rootVM.TotalPages));
             (commandParameter as Window).Close();
         }
     }
