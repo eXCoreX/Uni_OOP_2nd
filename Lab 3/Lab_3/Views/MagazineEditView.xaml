@@ -9,7 +9,9 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib" 
         d:DataContext="{d:DesignInstance Type=viewmodels:MagazineEditViewModel}"
         mc:Ignorable="d"
-        Title="{Binding Magazine.Name}" Height="450" Width="800"
+        Title="{Binding Magazine.Name}" 
+        Height="450" Width="800"
+        MinHeight="250" MinWidth="700"
         Closing="OnWindowClosing">
     <Window.Resources>
         <ObjectDataProvider x:Key="periodicityData" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
@@ -25,7 +27,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <TextBox Margin="2" Grid.Row="0" Text="{Binding Magazine.Name}" FontSize="24" />
-        <ListView Margin="2" Grid.Row="1" ItemsSource="{Binding Magazine.Articles}" FontSize="24">
+        <ListView Margin="2" Grid.Row="1" ItemsSource="{Binding Magazine.Articles}" SelectedIndex="{Binding SelectedIndex}" FontSize="24">
         </ListView>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -33,11 +35,15 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <TextBlock Margin="2" Grid.Column="0" Text="{Binding TotalPages, StringFormat=Pages total: {0}\,}" FontSize="24" />
             <TextBlock Margin="2" Grid.Column="1" Text="Published: " FontSize="24" />
             <ComboBox Margin="2" Grid.Column="2" SelectedItem="{Binding Magazine.Periodicity, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource periodicityData}}" FontSize="24" />
-            <Button Margin="2" Grid.Column="3" Content="Save" FontSize="24" Width="80" Command="{Binding SaveCommand}"/>
+            <Button Margin="2" Grid.Column="3" Content="Add new" FontSize="24" Width="110" PreviewMouseLeftButtonDown="OnAddNewArticleClick"/>
+            <Button Margin="2" Grid.Column="4" Content="Delete" FontSize="24" Width="100" Command="{Binding DeleteCommand}"/>
+            <Button Margin="2" Grid.Column="5" Content="Save" FontSize="24" Width="80" Command="{Binding SaveCommand}"/>
         </Grid>
     </Grid>
 </Window>

@@ -42,7 +42,9 @@ namespace Lab_3.Views
         {
             var evm = new MagazineEditViewModel(DataContext as MainViewModel);
             var detailView = new MagazineEditView(evm);
+            var lastSelected = (DataContext as MainViewModel).SelectedIndex;
             detailView.ShowDialog();
+            (DataContext as MainViewModel).SelectedIndex = lastSelected;
         }
     }
 }

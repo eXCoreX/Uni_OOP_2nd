@@ -34,5 +34,12 @@ namespace Lab_3.Views
                 }
             }
         }
+
+        private void OnAddNewArticleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            ArticleAddViewModel avm = new ArticleAddViewModel((DataContext as MagazineEditViewModel));
+            var addArticleView = new ArticleAddView(avm);
+            addArticleView.ShowDialog();
+        }
     }
 }

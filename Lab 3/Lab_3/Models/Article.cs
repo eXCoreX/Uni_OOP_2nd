@@ -26,17 +26,17 @@ namespace Lab_3.Models
             }
         }
 
-        private string name;
+        private string title;
 
         public string Title
         {
             get
             {
-                return name;
+                return title;
             }
             set
             {
-                name = value ?? throw new ArgumentNullException("Article name can't be null");
+                title = value ?? throw new ArgumentNullException("Article name can't be null");
             }
         }
 
@@ -50,7 +50,7 @@ namespace Lab_3.Models
             }
             set 
             {
-                if (pageCount < 0)
+                if (value < 0)
                 {
                     throw new ArgumentException("Page count can't be less than 1");
                 }

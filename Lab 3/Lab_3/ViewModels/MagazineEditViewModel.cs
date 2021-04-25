@@ -17,18 +17,22 @@ namespace Lab_3.ViewModels
             var testAuthor = new Author("Edsger", "Dijksta", new DateTime(1930, 4, 11));
             var testArticle = new Article(testAuthor, "Hierarchical Ordering of Sequential Processes", 24, 8700);
             testMagazine.AddArticle(testArticle);
-            _OriginalMag = testMagazine;
+            var _OriginalMag = testMagazine;
             Magazine = _OriginalMag.Clone() as Magazine;
+            _OriginalMagIdx = 0;
         }
 
         public MagazineEditViewModel(MainViewModel mainVM)
         {
-            _OriginalMag = mainVM?.Magazines[mainVM.SelectedIndex] ?? throw new ArgumentNullException("Magazine can't be null");
+            var _OriginalMag = mainVM?.Magazines[mainVM.SelectedIndex] ?? throw new ArgumentNullException("Magazine can't be null");
             Magazine = _OriginalMag.Clone() as Magazine;
+            _OriginalMagIdx = mainVM.SelectedIndex;
+            _rootVM = mainVM;
         }
 
         private Magazine _Magazine = null;
-        private readonly Magazine _OriginalMag = null;
+        private readonly int _OriginalMagIdx = -1;
+        private readonly MainViewModel _rootVM = null;
 
         public Magazine Magazine
         {
@@ -53,13 +57,6 @@ namespace Lab_3.ViewModels
             }
         }
 
-        public void CommitChanges()
-        {
-            _OriginalMag.Name = Magazine.Name;
-            _OriginalMag.Articles = Magazine.Articles;
-            _OriginalMag.Periodicity = Magazine.Periodicity;
-        }
-
         private ICommand saveCommand;
 
         public ICommand SaveCommand
@@ -79,8 +76,48 @@ namespace Lab_3.ViewModels
         {
             get
             {
-                return _OriginalMag != Magazine;
+                return _rootVM.Magazines[_OriginalMagIdx] != Magazine;
             }
+        }
+
+        private int _SelectedIndex = -1;
+
+        public int SelectedIndex
+        {
+            get { return _SelectedIndex; }
+            set
+            {
+                _SelectedIndex = value;
+                OnPropertyChanged(nameof(SelectedIndex));
+            }
+        }
+
+        private ICommand deleteCommand;
+
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                if (deleteCommand == null)
+                {
+                    deleteCommand = new RelayCommand(Delete, x => SelectedIndex != -1);
+                }
+
+                return deleteCommand;
+            }
+        }
+
+        private void Delete(object commandParameter)
+        {
+            Magazine.Articles.RemoveAt(SelectedIndex);
+        }
+
+        public void CommitChanges()
+        {
+            _rootVM.Magazines[_OriginalMagIdx] = Magazine;
+            //_OriginalMag.Name = Magazine.Name;
+            //_OriginalMag.Articles = Magazine.Articles;
+            //_OriginalMag.Periodicity = Magazine.Periodicity;
         }
     }
 }

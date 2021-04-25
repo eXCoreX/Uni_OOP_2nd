@@ -17,21 +17,6 @@ namespace Lab_3.ViewModels
             var testArticle = new Article(testAuthor, "Hierarchical Ordering of Sequential Processes", 24, 8700);
             testMagazine.AddArticle(testArticle);
             Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
-            Magazines.Add(testMagazine);
         }
 
         private ObservableCollection<Magazine> _Magazines = new ObservableCollection<Magazine>();

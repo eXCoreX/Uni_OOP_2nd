@@ -10,7 +10,9 @@
         xmlns:models="clr-namespace:Lab_3.Models"
         d:DataContext="{d:DesignInstance Type=viewmodels:MagazineAddViewModel}"
         mc:Ignorable="d"
-        Title="{Binding Magazine.Name}" Height="450" Width="800">
+        Title="{Binding Magazine.Name}" 
+        Height="450" Width="800"
+        MinHeight="250" MinWidth="400">
     <Window.Resources>
         <ObjectDataProvider x:Key="periodicityData" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
             <ObjectDataProvider.MethodParameters>
