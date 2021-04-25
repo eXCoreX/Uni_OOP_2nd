@@ -7,7 +7,9 @@
         xmlns:viewmodel="clr-namespace:Lab_3.ViewModels" 
         d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
         mc:Ignorable="d"
-        Title="Magazine Manager" Height="450" Width="800">
+        Title="Magazine Manager"
+        Height="450" Width="800"
+        MinHeight="250" MinWidth="600">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
