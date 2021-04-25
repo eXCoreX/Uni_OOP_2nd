@@ -1,11 +1,12 @@
-#Lab 3 - CRUD, Serialization
-###Variant 6 - Magazine storage/manager
+# Lab 3 - CRUD, Serialization
 
-##Magazine
+### Variant 6 - Magazine storage/manager
+
+## Magazine
 Has collection of Articles, Title, Fee and Periodicity properties
 
-##Article
+## Article
 Has Author, Title, number of pages and Fee properties
 
-##Author
+## Author
 Has First and Last names and Date of Birth
