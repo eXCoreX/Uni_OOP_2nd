@@ -22,3 +22,5 @@ The whole app is built using MVVM architecture. ViewModels never directly refere
 
 Models don't know about ViewModels, let alone Views, as well as Views don't know about Models.
 ![Architecture mode](https://i.imgur.com/pOgcdQk.png)
+
+Uses WPF, .NET Framework 4.7.2
