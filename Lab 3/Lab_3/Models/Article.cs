@@ -52,7 +52,7 @@ namespace Lab_3.Models
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException("Page count can't be less than 1");
+                    throw new ArgumentException("Page count can't be less than 0");
                 }
                 pageCount = value; 
             }

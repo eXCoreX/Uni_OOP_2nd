@@ -1,9 +1,5 @@
 ﻿using Lab_3.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Lab_3.Commands;
 using System.Windows;
@@ -22,19 +18,19 @@ namespace Lab_3.ViewModels
         public ArticleAddViewModel(MagazineAddViewModel magAddVM)
         {
             _Magazine = magAddVM?.Magazine ?? throw new ArgumentNullException("Magazine can't be null");
-            _rootVM = magAddVM;
+            _parentVM = magAddVM;
             Article = new Article(new Author("", "", new DateTime(2000, 1, 1)), "", 1, 0);
         }
 
         public ArticleAddViewModel(MagazineEditViewModel magEditVM)
         {
             _Magazine = magEditVM?.Magazine ?? throw new ArgumentNullException("Magazine can't be null");
-            _rootVM = magEditVM;
+            _parentVM = magEditVM;
             Article = new Article(new Author("", "", new DateTime(2000, 1, 1)), "", 1, 0);
         }
 
         private readonly Magazine _Magazine = null;
-        private readonly BaseViewModel _rootVM = null;
+        private readonly BaseViewModel _parentVM = null;
 
         private Article _Article = null;
         public Article Article
@@ -65,15 +61,15 @@ namespace Lab_3.ViewModels
         private void ArticleCorfirm(object commandParameter)
         {
             _Magazine.AddArticle(Article);
-            if (_rootVM is MagazineAddViewModel)
+            if (_parentVM is MagazineAddViewModel)
             {
-                var casted = _rootVM as MagazineAddViewModel;
-                _rootVM.OnPropertyChanged(nameof(casted.TotalPages));
+                var casted = _parentVM as MagazineAddViewModel;
+                _parentVM.OnPropertyChanged(nameof(casted.TotalPages));
             }
-            else if (_rootVM is MagazineEditViewModel)
+            else if (_parentVM is MagazineEditViewModel)
             {
-                var casted = _rootVM as MagazineEditViewModel;
-                _rootVM.OnPropertyChanged(nameof(casted.TotalPages));
+                var casted = _parentVM as MagazineEditViewModel;
+                _parentVM.OnPropertyChanged(nameof(casted.TotalPages));
             }
             (commandParameter as Window).Close();
         }

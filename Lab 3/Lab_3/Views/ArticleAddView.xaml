@@ -44,7 +44,7 @@
             </Grid>
             <StackPanel Margin="0,2" Grid.Row="2" Orientation="Horizontal">
                 <TextBlock Text="Date of birth: " FontSize="20" VerticalAlignment="Center"/>
-                <DatePicker SelectedDate="{Binding Article.Author.DateOfBirth}" FontSize="20" Margin="2" />
+                <DatePicker x:Name="dob" SelectedDate="{Binding Article.Author.DateOfBirth, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True}" FontSize="20" Margin="2" />
             </StackPanel>
         </Grid>
         
@@ -74,12 +74,28 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="0" Text="Number of pages: " FontSize="20" VerticalAlignment="Center" />
-                <TextBox Margin="2,0" Grid.Column="1" Text="{Binding Article.PageCount}" FontSize="20" />
+                <TextBox x:Name="pageCount" Margin="2,0" Grid.Column="1" Text="{Binding Article.PageCount, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True}" FontSize="20" />
                 <TextBlock Margin="2,0" Grid.Column="2" Text="Fee: " FontSize="20" VerticalAlignment="Center" />
-                <TextBox  Grid.Column="3" Text="{Binding Article.Fee}" FontSize="20" Margin="2,0,0,0" />
+                <TextBox x:Name="fee" Grid.Column="3" Text="{Binding Article.Fee, UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="2,0,0,0" />
             </Grid>
         </Grid>
-        
-        <Button Margin="5" Grid.Row="3" Content="Confirm" FontSize="24" Command="{Binding ArticleCorfirmCommand}" CommandParameter="{Binding ElementName=ThisWindow}"/>
+
+        <Button Margin="5" Grid.Row="3" Content="Confirm" FontSize="24" Command="{Binding ArticleCorfirmCommand}" CommandParameter="{Binding ElementName=ThisWindow}">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="IsEnabled" Value="False" />
+                    <Style.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ElementName=pageCount, Path=(Validation.HasError)}" Value="False"/>
+                                <Condition Binding="{Binding ElementName=dob, Path=(Validation.HasError)}" Value="False"/>
+                                <Condition Binding="{Binding ElementName=fee, Path=(Validation.HasError)}" Value="False"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="IsEnabled" Value="True" />
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
     </Grid>
 </Window>
