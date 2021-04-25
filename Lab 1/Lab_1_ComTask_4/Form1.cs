@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lab_1_ComTask_4
@@ -13,7 +7,7 @@ namespace Lab_1_ComTask_4
     public partial class Form1 : Form
     {
         private int labelCount = 0;
-        private Font labelFont;
+        private readonly Font labelFont;
         private int lastLabelY = 0;
         public Form1()
         {

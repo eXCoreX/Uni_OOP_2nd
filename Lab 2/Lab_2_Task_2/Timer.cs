@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -9,9 +6,9 @@ namespace Lab_2_Task_2
 {
     class Timer
     {
-        private Task timerThread;
-        private object _lock;
-        private CancellationTokenSource cancellationTokenSource;
+        private readonly Task timerThread;
+        private readonly object _lock;
+        private readonly CancellationTokenSource cancellationTokenSource;
 
         public Action Action { get; private set; }
 
@@ -75,7 +72,7 @@ namespace Lab_2_Task_2
             Monitor.Enter(_lock);
             timerThread = Task.Run(() =>
             {
-                while(true)
+                while (true)
                 {
                     if (ct.IsCancellationRequested)
                     {

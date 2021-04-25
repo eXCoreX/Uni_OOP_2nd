@@ -22,12 +22,12 @@ namespace Lab_3.Models
         [DataMember]
         public Periodicity Periodicity
         {
-            get 
-            { 
-                return periodicity; 
+            get
+            {
+                return periodicity;
             }
-            set 
-            { 
+            set
+            {
                 periodicity = value;
                 OnPropertyChanged(nameof(Periodicity));
             }
@@ -38,11 +38,11 @@ namespace Lab_3.Models
         [DataMember]
         public string Title
         {
-            get 
-            { 
-                return title; 
+            get
+            {
+                return title;
             }
-            set 
+            set
             {
                 title = value ?? throw new ArgumentNullException("Magazine name can't be null");
                 OnPropertyChanged(nameof(Title));
@@ -55,12 +55,12 @@ namespace Lab_3.Models
         [DataMember]
         public ObservableCollection<Article> Articles
         {
-            get 
-            { 
-                return articles; 
+            get
+            {
+                return articles;
             }
-            set 
-            { 
+            set
+            {
                 articles = value;
                 OnPropertyChanged(nameof(Articles));
                 OnPropertyChanged(nameof(ShortDescription));

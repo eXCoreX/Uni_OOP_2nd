@@ -1,8 +1,8 @@
-﻿using Lab_3.Models;
+﻿using Lab_3.Commands;
+using Lab_3.Models;
 using System;
-using System.Windows.Input;
-using Lab_3.Commands;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Lab_3.ViewModels
 {

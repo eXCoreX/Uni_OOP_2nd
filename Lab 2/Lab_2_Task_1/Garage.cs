@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab_2_Task_1
 {
-    class Garage: IEnumerable<Car>
+    class Garage : IEnumerable<Car>
     {
-        private List<Car> cars;
+        private readonly List<Car> cars;
 
         public IEnumerator<Car> GetEnumerator()
         {

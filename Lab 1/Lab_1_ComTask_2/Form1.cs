@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lab_1_ComTask_2
@@ -19,7 +12,7 @@ namespace Lab_1_ComTask_2
 
         private void buttonDeleteLabels_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < Controls.Count; )
+            for (int i = 0; i < Controls.Count;)
             {
                 var comp = Controls[i];
                 if (comp is Label)

@@ -1,12 +1,5 @@
-﻿using Lab_3.Commands;
-using Lab_3.Models;
+﻿using Lab_3.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
 
 namespace Lab_3.ViewModels
 {

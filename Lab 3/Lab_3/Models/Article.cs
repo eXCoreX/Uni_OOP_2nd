@@ -49,17 +49,17 @@ namespace Lab_3.Models
         [DataMember]
         public int PageCount
         {
-            get 
-            { 
-                return pageCount; 
+            get
+            {
+                return pageCount;
             }
-            set 
+            set
             {
                 if (value < 0)
                 {
                     throw new ArgumentException("Page count can't be less than 0");
                 }
-                pageCount = value; 
+                pageCount = value;
             }
         }
 
@@ -68,13 +68,13 @@ namespace Lab_3.Models
         [DataMember]
         public int Fee
         {
-            get 
+            get
             {
-                return fee; 
+                return fee;
             }
-            set 
-            { 
-                fee = value; 
+            set
+            {
+                fee = value;
             }
         }
 
