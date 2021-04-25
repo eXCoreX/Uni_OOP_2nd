@@ -7,7 +7,7 @@
         xmlns:viewmodels="clr-namespace:Lab_3.ViewModels" 
         d:DataContext="{d:DesignInstance Type=viewmodels:MagazineDetailViewModel}"
         mc:Ignorable="d"
-        Title="{Binding Magazine.Name}" 
+        Title="{Binding Magazine.Title}" 
         Height="450" Width="800"
         MinHeight="250" MinWidth="400">
     <Grid Margin="5">
@@ -16,7 +16,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <TextBlock Margin="2" Grid.Row="0" Text="{Binding Magazine.Name}" FontSize="24" />
+        <TextBlock Margin="2" Grid.Row="0" Text="{Binding Magazine.Title}" FontSize="24" />
         <ListView Margin="2" Grid.Row="1" ItemsSource="{Binding Magazine.Articles}" FontSize="24">
         </ListView>
         <Grid Grid.Row="2">

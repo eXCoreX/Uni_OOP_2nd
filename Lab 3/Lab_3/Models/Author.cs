@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace Lab_3.Models
 {
+    [DataContract]
     public class Author : ICloneable
     {
         public Author(string firstName, string lastName, DateTime dateOfBirth)
@@ -13,6 +15,7 @@ namespace Lab_3.Models
 
         private string firstName;
 
+        [DataMember]
         public string FirstName
         {
             get
@@ -27,6 +30,7 @@ namespace Lab_3.Models
 
         private string lastName;
 
+        [DataMember]
         public string LastName
         {
             get
@@ -41,6 +45,7 @@ namespace Lab_3.Models
 
         private DateTime dateOfBirth;
 
+        [DataMember]
         public DateTime DateOfBirth
         {
             get

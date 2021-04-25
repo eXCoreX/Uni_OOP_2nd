@@ -79,14 +79,16 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+        
         <DockPanel Margin="2">
             <Menu DockPanel.Dock="Top" FontSize="20">
                 <MenuItem Header="_File">
-                    <MenuItem Header="_Open" />
-                    <MenuItem Header="_Save" />
+                    <MenuItem Header="_Open" Click="FileOpenClick" />
+                    <MenuItem Header="_Save" Click="FileSaveClick" />
                 </MenuItem>
             </Menu>
         </DockPanel>
+        
         <ListView 
             x:Name="MagazinesListView" 
             Margin="2" Grid.Row="1" 

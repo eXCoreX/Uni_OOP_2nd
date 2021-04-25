@@ -2,21 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Lab_3.Models
 {
+    [DataContract]
     public class Magazine : PropertyChangedNotifier, ICloneable, IEquatable<Magazine>
     {
         public Magazine(Periodicity periodicity, string name)
         {
             Periodicity = periodicity;
-            Name = name;
+            Title = name;
             Articles = new ObservableCollection<Article>();
         }
 
         private Periodicity periodicity;
 
+        [DataMember]
         public Periodicity Periodicity
         {
             get 
@@ -30,24 +33,26 @@ namespace Lab_3.Models
             }
         }
 
-        private string name;
+        private string title;
 
-        public string Name
+        [DataMember]
+        public string Title
         {
             get 
             { 
-                return name; 
+                return title; 
             }
             set 
             {
-                name = value ?? throw new ArgumentNullException("Magazine name can't be null");
-                OnPropertyChanged(nameof(Name));
+                title = value ?? throw new ArgumentNullException("Magazine name can't be null");
+                OnPropertyChanged(nameof(Title));
                 OnPropertyChanged(nameof(ShortDescription));
             }
         }
 
         private ObservableCollection<Article> articles;
 
+        [DataMember]
         public ObservableCollection<Article> Articles
         {
             get 
@@ -84,7 +89,7 @@ namespace Lab_3.Models
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{Name}:\n");
+            sb.Append($"{Title}:\n");
             int totalPageCount = 0;
 
             foreach (var article in Articles)
@@ -107,7 +112,7 @@ namespace Lab_3.Models
                 totalPageCount += article.PageCount;
             }
 
-            return $"{Name}, {totalPageCount} p.";
+            return $"{Title}, {totalPageCount} p.";
         }
 
         public object Clone()
@@ -117,7 +122,7 @@ namespace Lab_3.Models
             {
                 articlesClone.Add(article.Clone() as Article);
             }
-            var magClone = new Magazine(Periodicity, Name)
+            var magClone = new Magazine(Periodicity, Title)
             {
                 Articles = articlesClone
             };
@@ -133,7 +138,7 @@ namespace Lab_3.Models
         {
             return other != null &&
                    Periodicity == other.Periodicity &&
-                   Name == other.Name &&
+                   Title == other.Title &&
                    EqualityComparer<ObservableCollection<Article>>.Default.Equals(Articles, other.Articles);
         }
 
@@ -141,7 +146,7 @@ namespace Lab_3.Models
         {
             int hashCode = -1033295748;
             hashCode = hashCode * -1521134295 + Periodicity.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Title);
             hashCode = hashCode * -1521134295 + EqualityComparer<ObservableCollection<Article>>.Default.GetHashCode(Articles);
             return hashCode;
         }

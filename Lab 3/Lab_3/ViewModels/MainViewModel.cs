@@ -65,5 +65,17 @@ namespace Lab_3.ViewModels
         {
             return SelectedIndex != -1;
         }
+
+        public void Load(string fileName)
+        {
+            var repo = new FileMagazineRepository();
+            Magazines = repo.Load(fileName);
+        }
+
+        internal void Store(string fileName)
+        {
+            var repo = new FileMagazineRepository();
+            repo.Store(Magazines, fileName);
+        }
     }
 }

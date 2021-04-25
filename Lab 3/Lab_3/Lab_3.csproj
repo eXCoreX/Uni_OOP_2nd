@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,6 +64,8 @@
     <Compile Include="Helpers\PropertyChangedNotifier.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\FileMagazineRepository.cs" />
+    <Compile Include="Models\IMagazineRepository.cs" />
     <Compile Include="Models\Magazine.cs" />
     <Compile Include="Models\Periodicity.cs" />
     <Compile Include="ViewModels\ArticleAddViewModel.cs" />

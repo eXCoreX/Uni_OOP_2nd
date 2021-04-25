@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace Lab_3.Models
 {
+    [DataContract]
     public class Article : ICloneable
     {
         public Article(Author author, string name, int pageCount, int fee)
@@ -14,6 +16,7 @@ namespace Lab_3.Models
 
         private Author author;
 
+        [DataMember]
         public Author Author
         {
             get
@@ -28,6 +31,7 @@ namespace Lab_3.Models
 
         private string title;
 
+        [DataMember]
         public string Title
         {
             get
@@ -42,6 +46,7 @@ namespace Lab_3.Models
 
         private int pageCount;
 
+        [DataMember]
         public int PageCount
         {
             get 
@@ -60,6 +65,7 @@ namespace Lab_3.Models
 
         private int fee;
 
+        [DataMember]
         public int Fee
         {
             get 

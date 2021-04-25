@@ -1,4 +1,5 @@
 ﻿using Lab_3.ViewModels;
+using System;
 using System.Windows;
 using System.Windows.Input;
 
@@ -45,6 +46,46 @@ namespace Lab_3.Views
             var lastSelected = (DataContext as MainViewModel).SelectedIndex;
             detailView.ShowDialog();
             (DataContext as MainViewModel).SelectedIndex = lastSelected;
+        }
+
+        private void FileOpenClick(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog
+            {
+                Multiselect = false,
+                Filter = "Magazine store file (*.msf)|*.msf"
+            };
+
+            bool? result = dialog.ShowDialog();
+
+            if (result == true)
+            {
+                try
+                {
+                    (DataContext as MainViewModel).Load(dialog.FileName);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("File contains bad or corrupted data", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void FileSaveClick(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Microsoft.Win32.SaveFileDialog
+            {
+                AddExtension = true,
+                DefaultExt = ".msf",
+                Filter = "Magazine store file (*.msf)|*.msf"
+            };
+
+            bool? result = dialog.ShowDialog();
+
+            if (result == true)
+            {
+                (DataContext as MainViewModel).Store(dialog.FileName);
+            }
         }
     }
 }
